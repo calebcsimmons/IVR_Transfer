@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "IVR Transfer",
+    "version": "1.0",
+    "description": "Copy IVR configuration from dev and paste into staging.",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "scr/background.js"
+    },
+    "action": {
+        "default_popup": "scr/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "scr/content.js"
+            ]
+        }
+    ]
+}
